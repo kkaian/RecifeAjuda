@@ -1,0 +1,7 @@
+POST http://localhost:3000/api/services
+Content-Type: application/json
+
+{ //alterar objeto jason do service quando for completado
+    "name": "zé boceta",
+    "description": "ave maria man, eh o ze buocecta"
+}

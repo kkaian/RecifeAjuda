@@ -2,10 +2,17 @@ const mongoose = require ("mongoose");
 
 const { Schema } = mongoose;
 
-const serviceSchema = new Schema ({
+const serviceSchema = new Schema ({ //criar o resto das componentes
 
-// colocar as propriedades dos serviços/acões sociais
-//obs tem que ter status para saber se foi concluida, etc..
+name:{
+    type: String,
+    required: true,
+},
+
+description:{
+    type: String,
+    requirede: true,
+},
 
 },{timestamps : true});
 
