@@ -10,7 +10,9 @@
 
                     name: req.body.name,
                     description: req.body.description,
-
+                    image: req.body.image,
+                    status: req.body.status,
+                    members: req.body.members,
                 };
 
                 const response = await ServiceModel.create(service);
@@ -18,7 +20,7 @@
 
             } catch (error) {
                 
-                console.log(error);
+                console.log("ocorreu um erro ao processar a requisição: " + error);
 
             }
 
