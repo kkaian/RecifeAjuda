@@ -29,8 +29,10 @@ status:{
 members:{
     type: [user],
     amount: Number,
+    limit: Number,
     required: true,
 },
+
 
 },{timestamps : true});
 
