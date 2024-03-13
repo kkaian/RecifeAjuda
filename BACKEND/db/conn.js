@@ -1,4 +1,5 @@
 const mongoose = require("mongoose")
+const stringConn = process.env.DB_KEY
 
 async function main(){
 
@@ -7,9 +8,9 @@ try {
     mongoose.set("strictQuery",true);
 
     await mongoose.connect(
-        "mongodb+srv://kaianguthierry:2KLSNJIQnXnwx4FT@cluster0.ajfxp3b.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+        `${stringConn}`
         );
-    console.log("teu banco tá pegando papai!");
+    console.log("Banco em funcionamento!");
 } catch (error) {
     console.log(`Erro: ${error}`);
 }
