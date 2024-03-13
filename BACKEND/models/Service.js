@@ -2,7 +2,7 @@ const mongoose = require ("mongoose");
 
 const { Schema } = mongoose;
 
-const user = require("./user").userSchema
+const user = require("./user").User
 
 const serviceSchema = new Schema ({ //criar o resto das componentes
 
@@ -27,7 +27,7 @@ status:{
 },
 
 members:{
-    type: [user],
+    type: [],
     amount: Number,
     limit: Number,
     required: true,
