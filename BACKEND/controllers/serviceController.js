@@ -1,5 +1,5 @@
 const { model } = require("mongoose");
-const { Service: ServiceModel } = require("../models/Service");
+const { Service: ServiceModel,  User: userProps} = require("../models/Service");
 
 const serviceController = {
 
@@ -17,11 +17,11 @@ const serviceController = {
             };
 
             const response = await ServiceModel.create(service);
-            res.status(201).json({ response, msg: "serviço criado carai" });
+            res.status(201).json({ response, msg: "serviço criado com sucesso!" });
 
         } catch (error) {
 
-            console.log("ocorreu um erro ao processar a requisição: " + error);
+            console.log("ocorreu um erro ao processar a requisição: " + error.message);
 
         }
 
@@ -33,7 +33,7 @@ const serviceController = {
             const services = await ServiceModel.find();
             res.json(services);
         } catch (error) {
-            console.log(error);
+            console.log(error.message);
         }
     },
 
@@ -50,7 +50,7 @@ const serviceController = {
 
             res.json(service)
         } catch (error) {
-            console.log(error)
+            console.log(error.message)
 
         }
     },
@@ -73,7 +73,7 @@ const serviceController = {
 
 
         } catch (error) {
-            console.log(error)
+            console.log(error.message)
 
         }
     },
