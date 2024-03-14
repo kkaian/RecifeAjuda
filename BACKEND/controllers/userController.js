@@ -6,6 +6,7 @@ const userController = {
             const user = {
                 name: req.body.name,
                 age: req.body.age,
+                genre: req.body.genre,
                 recoins: req.body.recoins,
                 image: req.body.image,
                 birth: req.body.birth,
@@ -78,6 +79,7 @@ const userController = {
             const user = {
                 name: req.body.name,
                 age: req.body.age,
+                genre: req.body.genre,
                 recoins: req.body.recoins,
                 image: req.body.image,
                 birth: req.body.birth,
@@ -92,7 +94,7 @@ const userController = {
                 return;
             }
 
-            res.status(200).json({ user, msg: "Dados atualizados com sucesso" });
+            res.status(200).json({ updatedUser, msg: "Dados atualizados com sucesso" });
 
         } catch (error) {
             console.log(error.message);
