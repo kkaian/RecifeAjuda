@@ -1,10 +1,9 @@
 const mongoose = require ("mongoose");
+const { userSchema } = require("./user");
 
 const { Schema } = mongoose;
 
-const user = require("./user").User
-
-const serviceSchema = new Schema ({ //criar o resto das componentes
+const serviceSchema = new Schema ({ 
 
 name:{
     type: String,
@@ -13,6 +12,11 @@ name:{
 
 description:{
     type: String,
+    required: true,
+},
+
+quantity: {
+    type: Number,
     required: true,
 },
 
@@ -27,10 +31,7 @@ status:{
 },
 
 members:{
-    type: [],
-    amount: Number,
-    limit: Number,
-    required: true,
+    type: [userSchema],
 },
 
 
@@ -38,7 +39,17 @@ members:{
 
 const Service = mongoose.model("Service", serviceSchema);
 
+const membersQuantity = Service.aggregate([
+    {
+      $project: {
+        arraySize: { $size: "$members" }
+      }
+    }
+  ])
+  
+
 module.exports = {
     Service,
     serviceSchema,
+    membersQuantity,
 };

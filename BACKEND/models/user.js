@@ -2,8 +2,6 @@ const mongoose = require ("mongoose");
 
 const { Schema } = mongoose;
 
-const serviceSchema = require("./Service")
-
 const userSchema = new Schema ({
 
 name:{
@@ -13,6 +11,11 @@ name:{
 
 age:{
     type: Number,
+    required: true,
+},
+
+genre: {
+    type: String,
     required: true,
 },
 
