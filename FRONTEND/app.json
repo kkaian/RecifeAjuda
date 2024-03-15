@@ -9,7 +9,7 @@
     "splash": {
       "image": "./assets/logo-recifeajuda+.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#5de0e6"
     },
     "assetBundlePatterns": [
       "**/*"
