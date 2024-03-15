@@ -12,7 +12,8 @@ const userController = {
                 birth: req.body.birth,
                 cpf: req.body.cep,
                 email: req.body.email,
-                cep: req.body.cep
+                cep: req.body.cep,
+                password: req.body.password
             }
             const response = await UserModel.create(user);
             res.status(200).json({ response, msg: "Usuário criado com sucesso!" });
@@ -85,7 +86,8 @@ const userController = {
                 birth: req.body.birth,
                 cpf: req.body.cep,
                 email: req.body.email,
-                cep: req.body.cep
+                cep: req.body.cep,
+                password: req.body.password
             }
             const updatedUser = await UserModel.findByIdAndUpdate(id, user);
 
