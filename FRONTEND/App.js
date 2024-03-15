@@ -2,12 +2,13 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { TelaLogin } from './src/pages/login'; 
 
+
 export default function App() {
-  
   return (
-    <View style={styles.container}>
-      <TelaLogin/>
-    </View>
+
+      <View style={styles.container}>
+        <TelaLogin />
+      </View>
   );
 }
 
