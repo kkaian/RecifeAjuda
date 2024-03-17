@@ -1,5 +1,5 @@
 const { model } = require("mongoose");
-const { Service: ServiceModel,  User: userProps} = require("../models/Service");
+const { Service: ServiceModel,  MembersQtd: membersQuantity} = require("../models/Service");
 
 const serviceController = {
 
@@ -11,10 +11,18 @@ const serviceController = {
 
                 name: req.body.name,
                 description: req.body.description,
+                quantity: req.body.quantity,
                 image: req.body.image,
                 status: req.body.status,
-                members: req.body.members,
+                members: req.body.members
             };
+            
+
+            // Tentativa de implementação da validação de quantidade (falta criar a função para validar)
+            // if(service.members && !funçãoASerCriada)){
+            // res.status(406).json({msg: "A quantidade máxima de membros para essa campanha já foi atingida!"});
+            // return;
+            // }
 
             const response = await ServiceModel.create(service);
             res.status(201).json({ response, msg: "serviço criado com sucesso!" });
@@ -84,6 +92,7 @@ const serviceController = {
             
             name: req.body.name,
             description: req.body.description,
+            quantity: req.body.quantity,
             image: req.body.image,
             status: req.body.status,
             members: req.body.members

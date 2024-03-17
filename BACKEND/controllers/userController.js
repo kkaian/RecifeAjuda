@@ -6,12 +6,14 @@ const userController = {
             const user = {
                 name: req.body.name,
                 age: req.body.age,
+                genre: req.body.genre,
                 recoins: req.body.recoins,
                 image: req.body.image,
                 birth: req.body.birth,
                 cpf: req.body.cep,
                 email: req.body.email,
-                cep: req.body.cep
+                cep: req.body.cep,
+                password: req.body.password
             }
             const response = await UserModel.create(user);
             res.status(200).json({ response, msg: "Usuário criado com sucesso!" });
@@ -78,12 +80,14 @@ const userController = {
             const user = {
                 name: req.body.name,
                 age: req.body.age,
+                genre: req.body.genre,
                 recoins: req.body.recoins,
                 image: req.body.image,
                 birth: req.body.birth,
                 cpf: req.body.cep,
                 email: req.body.email,
-                cep: req.body.cep
+                cep: req.body.cep,
+                password: req.body.password
             }
             const updatedUser = await UserModel.findByIdAndUpdate(id, user);
 
@@ -92,7 +96,7 @@ const userController = {
                 return;
             }
 
-            res.status(200).json({ user, msg: "Dados atualizados com sucesso" });
+            res.status(200).json({ updatedUser, msg: "Dados atualizados com sucesso" });
 
         } catch (error) {
             console.log(error.message);
