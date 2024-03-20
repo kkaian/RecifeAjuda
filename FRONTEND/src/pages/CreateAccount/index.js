@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Image, StyleSheet, Text, TextInput, TouchableOpacity } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import Home from '../home';
+import TelaLogin from '../login';
 
 
 export function CriarConta() {
@@ -12,6 +13,7 @@ export function CriarConta() {
   const [email, setEmail] = useState('');
   const [cep, setCep] = useState('');
   const [password, setPassword] = useState('');
+  const [hasSign, setHasSign] = useState(false);
 
     const handleSignUp = () => {
       // Verifique se todos os campos estão preenchidos
@@ -39,11 +41,16 @@ export function CriarConta() {
         
         // Exiba uma mensagem de sucesso (opcional)
         alert('Cadastro realizado com sucesso!');
+        setHasSign(true);
       } else {
         // Se algum campo estiver vazio, exiba um alerta pedindo ao usuário que preencha todos os campos
         alert('Por favor, preencha todos os campos.');
       }
     };
+
+    if(hasSign){
+      return <TelaLogin/>;
+    }
     
 
   return (

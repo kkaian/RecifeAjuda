@@ -3,7 +3,9 @@ import { View, Text, StyleSheet, Image } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 
 export function Home() {
+  
   return (
+
     <View style={styles.container}>
       <View>
         <LinearGradient
@@ -18,12 +20,13 @@ export function Home() {
           />
           <Image
             style={styles.sobrenos}
-            source={require("../../../assets/icon-sobrenos.png")}
+            source={require("../../../assets/icon-sobrenos.png")} 
           />
         </LinearGradient>
       </View>
 
-      <View style={styles.contPrincipal}>
+
+      <View style={styles.contPrincipal}> 
        <View style={styles.centralizarProj}>
         <View>
           <View style={styles.boxTitulo}>
@@ -56,116 +59,6 @@ export function Home() {
           </View>
           </View>
         </View>
-
-        <View>
-        <View style={styles.centralizarProj}>
-          <View style={styles.boxTitulo}>
-            <Text style={[styles.conteudo, styles.titulo]}>
-              COZINHA COMUNITARIA
-            </Text>
-          </View>
-          <Image
-            style={[styles.conteudo]}
-            source={require("../../../assets/cozinhacomunitaria.png")}
-          />
-          <View style={[styles.calen]}>
-            <Image
-              style={[styles.icone, styles.calen]}
-              source={require("../../../assets/calendario.png")}
-            />
-            <Text style={[styles.calen]}>21/09/2004</Text>
-          </View>
-          <View style={[styles.calen]}>
-            <Image
-              style={[styles.icone, styles.calen]}
-              source={require("../../../assets/icon-relogio.png")}
-            />
-            <Text style={[styles.calen]}>16:00 - 19:00</Text>
-          </View>
-          <View style={[styles.calen, styles.centralizarRec]}>
-            <Image
-              style={[styles.icone, styles.calen]}
-              source={require("../../../assets/icon-recicoin.png")}
-            />
-            <Text style={[styles.recicoin]}>30</Text>
-          </View>
-        </View>
-        </View>
-
-        <View>
-        <View style={styles.centralizarProj}>
-          <View style={styles.boxTitulo}>
-            <Text style={[styles.conteudo, styles.titulo]}>
-              PLANTIO COMUNITARIO
-            </Text>
-          </View>
-          <Image
-            style={[styles.conteudo]}
-            source={require("../../../assets/plantiocomunitario.png")}
-          />
-          <View style={[styles.calen]}>
-            <Image
-              style={[styles.icone, styles.calen]}
-              source={require("../../../assets/calendario.png")}
-            />
-            <Text style={[styles.calen]}>21/09/2004</Text>
-          </View>
-          <View style={[styles.calen]}>
-            <Image
-              style={[styles.icone, styles.calen]}
-              source={require("../../../assets/icon-relogio.png")}
-            />
-            <Text style={[styles.calen]}>16:00 - 19:00</Text>
-          </View>
-          <View style={[styles.calen, styles.centralizarRec]}>
-            <Image
-              style={[styles.icone, styles.calen]}
-              source={require("../../../assets/icon-recicoin.png")}
-            />
-            <Text style={[styles.recicoin]}>30</Text>
-          </View>
-        </View>
-        </View>
-
-        <View>
-        <View style={styles.centralizarProj4}>
-          <View style={styles.boxTitulo}>
-            <Text style={[styles.conteudo, styles.titulo]}>
-              LIXO COMUNITARIO
-            </Text>
-          </View>
-          <Image
-            style={[styles.conteudo]}
-            source={require("../../../assets/catarlixo.png")}
-          />
-          <View style={styles.box1}>
-          <View style={[styles.calen]}>
-            <Image
-              style={[styles.icone, styles.calen]}
-              source={require("../../../assets/calendario.png")}
-            />
-            <Text style={[styles.calen]}>21/09/2004</Text>
-          </View>
-          <View style={[styles.calen]}>
-            <Image
-              style={[styles.icone, styles.calen]}
-              source={require("../../../assets/icon-relogio.png")}
-            />
-            <Text style={[styles.calen]}>16:00 - 19:00</Text>
-          </View>
-          <View style={[styles.calen, styles.centralizarRec]}>
-          
-            <Image
-              style={[styles.icone, styles.calen]}
-              source={require("../../../assets/icon-recicoin.png")}
-            />
-           
-            <Text style={[styles.recicoin]}>30</Text>
-          
-          </View>
-          </View>
-        </View>
-      </View>
       </View>
     </View>
   );
@@ -202,7 +95,7 @@ const styles = StyleSheet.create({
     flex: 1,
 
     flexWrap: "wrap",
-    alignContent: "center",
+    alignContent: "left",
     alignItems: "center",
   },
   centralizarProj: {
@@ -262,10 +155,6 @@ const styles = StyleSheet.create({
   centralizarRec: {
     marginLeft: 17,
   },
-  box1: {
-    backgroundColor: 'white',
-    borderRadius: 30,
-  }
   
 });
 

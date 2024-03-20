@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Image, TextInput, TouchableOpacity, Text } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import Home from '../home';
 import CriarConta from '../CreateAccount';
+import { Routes, Route } from '../../routes'; 
 
 export function TelaLogin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Estado para controlar se o usuário está autenticado
+  const [isLoggedIn, setIsLoggedIn] = useState(); // Estado para controlar se o usuário está autenticado
   const [cadastro, setCadastro] = useState(false);
   const handleLogin = () => {
     // Adicione a lógica de autenticação aqui
@@ -16,17 +16,18 @@ export function TelaLogin() {
 
     // Simulando uma autenticação bem-sucedida
     setIsLoggedIn(true);
+    
   };
 
-  const SiginUp = () => {
+  const SignUp = () => {
 
     setCadastro(true);
 
   }
 
   if (isLoggedIn) {
-    // Se o usuário estiver autenticado, renderize a tela HomeScreen
-    return <Home/>;
+    // Se o usuário estiver autenticado, renderize a tela Home
+    return <Routes/>;
   }
 
   if (cadastro) {
@@ -61,7 +62,7 @@ export function TelaLogin() {
         />
 
         <TouchableOpacity 
-        onPress={SiginUp}
+        onPress={SignUp}
         >
           <Text style={styles.button_siginText}>CADASTRE-SE</Text>
         </TouchableOpacity>
