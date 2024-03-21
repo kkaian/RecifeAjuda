@@ -14,7 +14,6 @@ export function Routes() {
 
   
   if(Route){
-    Route = false;
     return (
 
     <Tab.Navigator initialRouteName="Home">

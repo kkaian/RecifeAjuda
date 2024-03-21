@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, View, Image, TextInput, TouchableOpacity, Text } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import CriarConta from '../CreateAccount';
-import { Routes, Route } from '../../routes'; 
+import { Routes } from '../../routes'; 
 
 export function TelaLogin() {
   const [email, setEmail] = useState('');

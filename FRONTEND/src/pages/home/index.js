@@ -1,8 +1,21 @@
-import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, Image,TouchableOpacity } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+import Aboutus from '../about';
 
 export function Home() {
+  const [about, setAbout] = useState(false);
+
+  const PressIcon = () => {
+
+    setAbout(true);
+
+  }
+
+  if (about) {
+
+    return <Aboutus/>;
+  }
   
   return (
 
@@ -18,24 +31,27 @@ export function Home() {
             style={styles.logo}
             source={require("../../../assets/logo-recifeajuda+.png")}
           />
+          <TouchableOpacity onPress={PressIcon}>
           <Image
             style={styles.sobrenos}
             source={require("../../../assets/icon-sobrenos.png")} 
           />
+          </TouchableOpacity>
         </LinearGradient>
       </View>
 
 
       <View style={styles.contPrincipal}> 
        <View style={styles.centralizarProj}>
-        <View>
           <View style={styles.boxTitulo}>
-            <Text style={[styles.conteudo, styles.titulo]}>PREA COMUNITARIO</Text>
+            <Text style={styles.titulo}>PREA COMUNITARIO</Text>
           </View>
+          <View style={styles.conteudo}>
           <Image
-            style={[styles.conteudo]}
+            style={styles.imagem}
             source={require("../../../assets/cacarprea.png")}
           />
+          </View>
           <View style={[styles.calen]}>
             <Image
               style={[styles.icone, styles.calen]}
@@ -58,7 +74,6 @@ export function Home() {
             <Text style={[styles.recicoin]}>30</Text>
           </View>
           </View>
-        </View>
       </View>
     </View>
   );
@@ -89,71 +104,73 @@ const styles = StyleSheet.create({
     margin: 0,
     top: -83,
     left: 160,
+    opacity: 0.4,
   },
 
   contPrincipal: {
     flex: 1,
-
-    flexWrap: "wrap",
-    alignContent: "left",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
+    flexWrap: 'wrap', 
   },
   centralizarProj: {
-    alignItems: 'flex-start',
+
+    backgroundColor: '#D8D6D6',
+    borderRadius:20,
+    marginLeft: '1.5%',
+    marginTop: '5%',
+    marginRight: '1%',
+    marginBottom: '5%',
+    width: '50%',
+    height: '40%',
+    alignItems: "center",
+    justifyContent: "center",
+
    
-  },
-  centralizarProj4: {
-    backgroundColor: '#E7E7E7',
-    borderRadius: 30,
-    height: 180,
-    width: 200,
-    borderColor: '#D1CDCD',
-    
   },
   
   boxTitulo: {
-    flex: 0,
+    flex: 1,
     borderRadius: 30,
-    alignItems: "center",
     borderColor: "#CAC8C8",
-    marginTop: 5,
-    marginBottom: -10,
-    alignSelf: "center",
-    
 
   },
 
   titulo: {
     fontSize: 13,
     fontWeight: "700",
-    
-    marginBottom: 1,
-    textDecorationLine: 'underline',
    
   },
   conteudo: {
-    margin: 25,
-    marginBottom: 10,
-    maxHeight: 155,
-    maxWidth: 155,
+    width: 155, 
+    height: 155, 
+    borderWidth: 1, 
+    borderColor: 'gray', 
+    borderRadius: 20,
+
+  },
+  imagem: {
+    flex: 1,
+    width: '100%',
+    height: '100%',
     borderRadius: 20,
   },
+
   icone: {
     width: 18,
     height: 18,
   },
   calen: {
     flexDirection: "row",
-    marginLeft: 15,
-    
+
   },
  
   recicoin: {
-    paddingLeft: 0,
-    marginLeft: 15,
+
   },
   centralizarRec: {
-    marginLeft: 17,
+
   },
   
 });
