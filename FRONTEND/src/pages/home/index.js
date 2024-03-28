@@ -4,6 +4,14 @@ import { LinearGradient } from "expo-linear-gradient";
 import Aboutus from '../about';
 
 export function Home() {
+
+  const projects = [
+    { id: 1, title: 'Projeto 1', image: require('../../../assets/cacarprea.png'), recicoin: '30', date: '21/05/2003', hour: '16:20 - 17:20' },
+    { id: 2, title: 'Projeto 2', image: require('../../../assets/cozinhacomunitaria.png'), recicoin: '30', date: '21/05/2003', hour: '16:20 - 17:20' },
+    { id: 3, title: 'Projeto 3', image: require('../../../assets/cacarprea.png'), recicoin: '30', date: '21/05/2003', hour: '16:20 - 17:20' },
+    { id: 4, title: 'Projeto 3', image: require('../../../assets/cacarprea.png'), recicoin: '30', date: '21/05/2003', hour: '16:20 - 17:20' },
+  ];
+
   const [about, setAbout] = useState(false);
 
   const PressIcon = () => {
@@ -42,41 +50,48 @@ export function Home() {
 
 
       <View style={styles.contPrincipal}> 
-       <View style={styles.centralizarProj}>
+      {projects.map(project => (
+       <View key={project.id} style={styles.centralizarProj}>
+       
           <View style={styles.boxTitulo}>
-            <Text style={styles.titulo}>PREA COMUNITARIO</Text>
+            <Text style={styles.titulo}>{project.title}</Text>
           </View>
           <View style={styles.conteudo}>
           <Image
             style={styles.imagem}
-            source={require("../../../assets/cacarprea.png")}
+            source={project.image}
           />
           </View>
+          <View style={styles.boxInfo}>
+            <View style={styles.boxCalenHour}>
           <View style={[styles.calen]}>
             <Image
               style={[styles.icone, styles.calen]}
               source={require("../../../assets/calendario.png")}
             />
-            <Text style={[styles.calen]}>21/09/2004</Text>
+            <Text style={[styles.calen]}>{project.date}</Text>
           </View>
           <View style={[styles.calen]}>
             <Image
               style={[styles.icone, styles.calen]}
               source={require("../../../assets/icon-relogio.png")}
             />
-            <Text style={[styles.calen]}>16:00 - 19:00</Text>
+            <Text style={[styles.calen]}>{project.hour}</Text>
           </View>
-          <View style={[styles.calen, styles.centralizarRec]}>
+          </View>
+          <View style={[styles.calen]}>
             <Image
               style={[styles.icone, styles.calen]}
               source={require("../../../assets/icon-recicoin.png")}
             />
-            <Text style={[styles.recicoin]}>30</Text>
+            <Text style={[styles.calen]}>{project.recicoin}</Text>
           </View>
           </View>
+          </View>
+        ))}
       </View>
     </View>
-  );
+       );
 }
 
 const styles = StyleSheet.create({
@@ -116,13 +131,13 @@ const styles = StyleSheet.create({
   },
   centralizarProj: {
 
-    backgroundColor: '#D8D6D6',
+    backgroundColor: '#E6E3E3',
     borderRadius:20,
-    marginLeft: '1.5%',
+    marginLeft: '3%',
     marginTop: '5%',
     marginRight: '1%',
     marginBottom: '5%',
-    width: '50%',
+    width: '45%',
     height: '40%',
     alignItems: "center",
     justifyContent: "center",
@@ -133,13 +148,14 @@ const styles = StyleSheet.create({
   boxTitulo: {
     flex: 1,
     borderRadius: 30,
-    borderColor: "#CAC8C8",
+    borderColor: "#CAC8C",
 
   },
 
   titulo: {
     fontSize: 13,
     fontWeight: "700",
+    marginTop: 10,
    
   },
   conteudo: {
@@ -148,6 +164,7 @@ const styles = StyleSheet.create({
     borderWidth: 1, 
     borderColor: 'gray', 
     borderRadius: 20,
+    marginBottom: 20,
 
   },
   imagem: {
@@ -157,19 +174,36 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
 
+  boxInfo: {
+
+    backgroundColor: "#fff",
+    width: 155, 
+    height: 50,
+    borderRadius: 20,
+    marginBottom: 10,
+    flexDirection: 'row', 
+    alignItems: 'center',
+
+  },
+
+  boxCalenHour: {
+    
+
+  },
+
   icone: {
     width: 18,
     height: 18,
+    marginLeft: 5,
   },
   calen: {
     flexDirection: "row",
+    fontSize: 11,
+    marginLeft: 5,
 
   },
  
   recicoin: {
-
-  },
-  centralizarRec: {
 
   },
   
