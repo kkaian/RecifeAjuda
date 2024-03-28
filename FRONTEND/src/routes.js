@@ -26,13 +26,13 @@ export function Routes() {
         height: '8%',
         paddingBottom: 5,
         paddingTop: 5,
-        position: 'absolute',
+      
         backgroundColor: '#2B90C7',
         //borderRadius: 30,
         //marginBottom: 10,
         //marginLeft: 8,
         //marginRight: 8,
-        
+     
         
       },
       

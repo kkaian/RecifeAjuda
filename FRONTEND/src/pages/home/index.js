@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Image,TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, Image,TouchableOpacity, ScrollView } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import Aboutus from '../about';
+import { FontAwesome6 } from '@expo/vector-icons';
 
 export function Home() {
 
   const projects = [
     { id: 1, title: 'Projeto 1', image: require('../../../assets/cacarprea.png'), recicoin: '30', date: '21/05/2003', hour: '16:20 - 17:20' },
     { id: 2, title: 'Projeto 2', image: require('../../../assets/cozinhacomunitaria.png'), recicoin: '30', date: '21/05/2003', hour: '16:20 - 17:20' },
-    { id: 3, title: 'Projeto 3', image: require('../../../assets/cacarprea.png'), recicoin: '30', date: '21/05/2003', hour: '16:20 - 17:20' },
-    { id: 4, title: 'Projeto 3', image: require('../../../assets/cacarprea.png'), recicoin: '30', date: '21/05/2003', hour: '16:20 - 17:20' },
+    { id: 3, title: 'Projeto 3', image: require('../../../assets/catarlixo.png'), recicoin: '30', date: '21/05/2003', hour: '16:20 - 17:20' },
+    { id: 4, title: 'Projeto 4', image: require('../../../assets/plantiocomunitario.png'), recicoin: '30', date: '21/05/2003', hour: '16:20 - 17:20' },
+    { id: 5, title: 'Projeto 5', image: require('../../../assets/cacarprea.png'), recicoin: '30', date: '21/05/2003', hour: '16:20 - 17:20' },
+    { id: 6, title: 'Projeto 6', image: require('../../../assets/cacarprea.png'), recicoin: '30', date: '21/05/2003', hour: '16:20 - 17:20' },
+    { id: 7, title: 'Projeto 7', image: require('../../../assets/cacarprea.png'), recicoin: '30', date: '21/05/2003', hour: '16:20 - 17:20' },
+    { id: 8, title: 'Projeto 8', image: require('../../../assets/cacarprea.png'), recicoin: '30', date: '21/05/2003', hour: '16:20 - 17:20' },
+  
   ];
 
   const [about, setAbout] = useState(false);
@@ -26,7 +32,7 @@ export function Home() {
   }
   
   return (
-
+    
     <View style={styles.container}>
       <View>
         <LinearGradient
@@ -48,7 +54,10 @@ export function Home() {
         </LinearGradient>
       </View>
 
-
+      <ScrollView 
+      showsVerticalScrollIndicator={false}
+     
+      >
       <View style={styles.contPrincipal}> 
       {projects.map(project => (
        <View key={project.id} style={styles.centralizarProj}>
@@ -79,17 +88,19 @@ export function Home() {
             <Text style={[styles.calen]}>{project.hour}</Text>
           </View>
           </View>
-          <View style={[styles.calen]}>
-            <Image
-              style={[styles.icone, styles.calen]}
-              source={require("../../../assets/icon-recicoin.png")}
+          <View style={[styles.calen, styles.recicoinBorda]}>
+            <FontAwesome6
+                name='coins' color='gold' size={15}
+              style={[styles.recicoinAjuste]}
+              
             />
-            <Text style={[styles.calen]}>{project.recicoin}</Text>
+            <Text style={[styles.calen, styles.recicoinAjuste]}>{project.recicoin}</Text>
           </View>
           </View>
           </View>
         ))}
       </View>
+      </ScrollView>
     </View>
        );
 }
@@ -128,20 +139,23 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "flex-start",
     flexWrap: 'wrap', 
+    
+    
   },
   centralizarProj: {
 
     backgroundColor: '#E6E3E3',
     borderRadius:20,
+   
     marginLeft: '3%',
-    marginTop: '5%',
+    marginTop: '3%',
     marginRight: '1%',
     marginBottom: '5%',
     width: '45%',
-    height: '40%',
+    height: '22.5%',
     alignItems: "center",
     justifyContent: "center",
-
+   
    
   },
   
@@ -155,7 +169,8 @@ const styles = StyleSheet.create({
   titulo: {
     fontSize: 13,
     fontWeight: "700",
-    marginTop: 10,
+    marginTop: '4%',
+    marginBottom: '4%',
    
   },
   conteudo: {
@@ -198,15 +213,22 @@ const styles = StyleSheet.create({
   },
   calen: {
     flexDirection: "row",
-    fontSize: 11,
+    fontSize: 12,
     marginLeft: 5,
-
+    marginTop: '1.5%'
   },
  
-  recicoin: {
-
+  recicoinAjuste: {
+     marginLeft: '9%',
+      alignSelf: 'center',
   },
-  
+  recicoinBorda:{
+    borderLeftWidth: 0.9,
+   
+    height: '70%',
+    
+  }
+
 });
 
 export default Home;
