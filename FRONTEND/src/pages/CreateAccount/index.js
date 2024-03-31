@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
-import { View, Image, StyleSheet, Text, TextInput, TouchableOpacity } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import Home from '../home';
+import { useWindowDimensions } from 'react-native';
 import TelaLogin from '../login';
 
-
 export function CriarConta() {
+  const window = useWindowDimensions();
+  const [orientation, setOrientation] = useState('portrait');
   const [nome, setNome] = useState('');
   const [datanascimento, setDatanascimento] = useState('');
   const [telefone, setTelefone] = useState('');
@@ -15,43 +16,47 @@ export function CriarConta() {
   const [password, setPassword] = useState('');
   const [hasSign, setHasSign] = useState(false);
 
-    const handleSignUp = () => {
-      // Verifique se todos os campos estão preenchidos
-      if (nome && datanascimento && telefone && cpf && email && cep && password) {
-        // Faça algo com os dados, como enviar para um servidor ou armazenar localmente
-        // Por exemplo, você pode enviar os dados para um endpoint de API para criar uma conta
-        console.log('Cadastro realizado com sucesso:', {
-          nome,
-          datanascimento,
-          telefone,
-          cpf,
-          email,
-          cep,
-          password,
-        });
-    
-        // Limpe os campos após o cadastro
-        setNome('');
-        setDatanascimento('');
-        setTelefone('');
-        setCpf('');
-        setEmail('');
-        setCep('');
-        setPassword('');
-        
-        // Exiba uma mensagem de sucesso (opcional)
-        alert('Cadastro realizado com sucesso!');
-        setHasSign(true);
-      } else {
-        // Se algum campo estiver vazio, exiba um alerta pedindo ao usuário que preencha todos os campos
-        alert('Por favor, preencha todos os campos.');
-      }
-    };
+  useEffect(() => {
+    const isPortrait = window.height > window.width;
+    setOrientation(isPortrait ? 'portrait' : 'landscape');
+  }, [window]);
 
-    if(hasSign){
-      return <TelaLogin/>;
+  const handleSignUp = () => {
+    // Verifique se todos os campos estão preenchidos
+    if (nome && datanascimento && telefone && cpf && email && cep && password) {
+      // Faça algo com os dados, como enviar para um servidor ou armazenar localmente
+      // Por exemplo, você pode enviar os dados para um endpoint de API para criar uma conta
+      console.log('Cadastro realizado com sucesso:', {
+        nome,
+        datanascimento,
+        telefone,
+        cpf,
+        email,
+        cep,
+        password,
+      });
+
+      // Limpe os campos após o cadastro
+      setNome('');
+      setDatanascimento('');
+      setTelefone('');
+      setCpf('');
+      setEmail('');
+      setCep('');
+      setPassword('');
+
+      // Exiba uma mensagem de sucesso (opcional)
+      alert('Cadastro realizado com sucesso!');
+      setHasSign(true);
+    } else {
+      // Se algum campo estiver vazio, exiba um alerta pedindo ao usuário que preencha todos os campos
+      alert('Por favor, preencha todos os campos.');
     }
-    
+  };
+
+  if (hasSign) {
+    return <TelaLogin />;
+  }
 
   return (
     <LinearGradient
@@ -60,19 +65,16 @@ export function CriarConta() {
       end={{ x: 0.5, y: 1.0 }}
       style={styles.container}
     >
-      <View style={styles.content}>
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
+        <View style={styles.content}>
+          <Image
+            source={require("../../../assets/logo-recifeajuda+.png")}
+            style={styles.logo}
+          />
+          <Text style={styles.Text}>CADASTRE-SE</Text>
+          <Text style={[styles.Text1, { marginBottom: 25 }]}>INFORME SEUS DADOS A SEGUIR:</Text>
 
-        <Image
-          source={require("../../../assets/logo-recifeajuda+.png")}
-          style={styles.logo}
-        />
-        
-        <Text style={styles.Text}>CADASTRE-SE</Text>
-        <Text style={[styles.Text1, { marginBottom: 25 }]}>INFORME SEUS DADOS A SEGUIR:</Text>
-
-
-
-        <Text style={styles.label}>NOME COMPLETO</Text>
+          <Text style={styles.label}>NOME COMPLETO</Text>
         <TextInput
           placeholder="Qual é seu nome?"
           style={styles.TextInput}
@@ -117,18 +119,21 @@ export function CriarConta() {
           onChangeText={text => setCep(text)}
         />
 
+          
 
-<TouchableOpacity style={styles.button} onPress={handleSignUp}>
-          <LinearGradient
-            colors={['#15a63a', '#7ed957']}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 0 }}
-            style={styles.gradient}
-          >
-            <Text style={styles.buttonText}>Confirmar</Text>
-          </LinearGradient>
-        </TouchableOpacity>
-      </View>
+          <TouchableOpacity style={orientation === 'landscape' ? styles.buttonLandscape : styles.button} 
+            onPress={handleSignUp}>
+            <LinearGradient
+              colors={['#15a63a', '#7ed957']}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
+              style={styles.gradient}
+            >
+              <Text style={styles.buttonText}>Confirmar</Text>
+            </LinearGradient>
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
     </LinearGradient>
   );
 }
@@ -137,29 +142,32 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  content: {
-    flex: 1,
-    alignItems: 'center',
+  scrollContainer: {
+    flexGrow: 1,
     justifyContent: 'center',
   },
+  content: {
+    alignItems: 'flex-start', 
+    justifyContent: 'center',
+    paddingHorizontal: '10%', 
+  },
   logo: {
-    marginLeft: 15,
-    marginTop:-40,
+    marginLeft: 'auto', 
+    marginRight: 'auto',
+    marginTop: -25,
     width: 150,
     height: 150,
   },
   TextInput: {
-    width: 300,
+    width: '100%', 
     height: 35,
     backgroundColor: 'white',
     borderRadius: 100,
     marginBottom: 5,
     paddingHorizontal: 10,
-    
-    //textAlign: 'left'
   },
   buttonText: {
-    textAlign:'center',
+    textAlign: 'center',
     fontSize: 16,
     fontWeight: 'bold',
     color: '#fff',
@@ -168,37 +176,46 @@ const styles = StyleSheet.create({
     width: '60%',
     height: 50,
     borderRadius: 100,
-    marginTop: 20,
-    overflow: 'hidden', // Evita que o gradiente ultrapasse os limites do botão
+    marginTop: 10,
+    overflow: 'hidden',
+    alignSelf: 'center'
   },
   gradient: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
-
   label: {
     color: '#000000',
     textAlign: 'left',
     fontSize: 12,
-    width:'70%',
-    //marginLeft: -150
+    width: '100%', 
   },
   Text: {
-    marginTop: -23, 
+    marginTop: -25,
     marginBottom: 0,
     color: 'white',
     fontSize: 25,
     fontWeight: 'bold',
+    alignSelf: 'center',
   },
   Text1: {
-    marginTop: 5, 
+    marginTop: 0,
     marginBottom: 0,
     color: 'white',
     fontSize: 15,
+   alignSelf: 'center',
   },
-
-  
+  buttonLandscape: {
+    width: '50%',
+    height: 50,
+    borderRadius: 100,
+    marginTop: 10,
+    overflow: 'hidden',
+    alignSelf: 'center',
+    marginBottom: 20,
+  },
 });
+
 
 export default CriarConta;
