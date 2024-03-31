@@ -7,16 +7,16 @@ import { useTranslation } from 'react-i18next';
 
 
 export function Home() {
-  const t = useTranslation()
+  const { t } = useTranslation()
   const projects = [
-    { id: 1, title: 'Projeto 1', image: require('../../../assets/cacarprea.png'), recicoin: '30', date: '21/05/2003', hour: '16:20 - 17:20' },
-    { id: 2, title: 'Projeto 2', image: require('../../../assets/cozinhacomunitaria.png'), recicoin: '30', date: '21/05/2003', hour: '16:20 - 17:20' },
-    { id: 3, title: 'Projeto 3', image: require('../../../assets/catarlixo.png'), recicoin: '30', date: '21/05/2003', hour: '16:20 - 17:20' },
-    { id: 4, title: 'Projeto 4', image: require('../../../assets/plantiocomunitario.png'), recicoin: '30', date: '21/05/2003', hour: '16:20 - 17:20' },
-    { id: 5, title: 'Projeto 5', image: require('../../../assets/cacarprea.png'), recicoin: '30', date: '21/05/2003', hour: '16:20 - 17:20' },
-    { id: 6, title: 'Projeto 6', image: require('../../../assets/cacarprea.png'), recicoin: '30', date: '21/05/2003', hour: '16:20 - 17:20' },
-    { id: 7, title: 'Projeto 7', image: require('../../../assets/cacarprea.png'), recicoin: '30', date: '21/05/2003', hour: '16:20 - 17:20' },
-    { id: 8, title: 'Projeto 8', image: require('../../../assets/cacarprea.png'), recicoin: '30', date: '21/05/2003', hour: '16:20 - 17:20' },
+    { id: 1, title: t('Projeto') + ' 1', image: require('../../../assets/cacarprea.png'), recicoin: '30', date: '21/05/2003', hour: '16:20 - 17:20' },
+    { id: 2, title: t('Projeto') + ' 2', image: require('../../../assets/cozinhacomunitaria.png'), recicoin: '30', date: '21/05/2003', hour: '16:20 - 17:20' },
+    { id: 3, title: t('Projeto') + ' 3', image: require('../../../assets/catarlixo.png'), recicoin: '30', date: '21/05/2003', hour: '16:20 - 17:20' },
+    { id: 4, title: t('Projeto') + ' 4', image: require('../../../assets/plantiocomunitario.png'), recicoin: '30', date: '21/05/2003', hour: '16:20 - 17:20' },
+    { id: 5, title: t('Projeto') + ' 5', image: require('../../../assets/cacarprea.png'), recicoin: '30', date: '21/05/2003', hour: '16:20 - 17:20' },
+    { id: 6, title: t('Projeto') + ' 6', image: require('../../../assets/cacarprea.png'), recicoin: '30', date: '21/05/2003', hour: '16:20 - 17:20' },
+    { id: 7, title: t('Projeto') + ' 7', image: require('../../../assets/cacarprea.png'), recicoin: '30', date: '21/05/2003', hour: '16:20 - 17:20' },
+    { id: 8, title: t('Projeto') + ' 8', image: require('../../../assets/cacarprea.png'), recicoin: '30', date: '21/05/2003', hour: '16:20 - 17:20' },
   
   ];
 
