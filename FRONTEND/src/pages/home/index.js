@@ -3,9 +3,11 @@ import { View, Text, StyleSheet, Image,TouchableOpacity, ScrollView } from "reac
 import { LinearGradient } from "expo-linear-gradient";
 import Aboutus from '../about';
 import { FontAwesome6 } from '@expo/vector-icons';
+import { useTranslation } from 'react-i18next';
+
 
 export function Home() {
-
+  const t = useTranslation()
   const projects = [
     { id: 1, title: 'Projeto 1', image: require('../../../assets/cacarprea.png'), recicoin: '30', date: '21/05/2003', hour: '16:20 - 17:20' },
     { id: 2, title: 'Projeto 2', image: require('../../../assets/cozinhacomunitaria.png'), recicoin: '30', date: '21/05/2003', hour: '16:20 - 17:20' },
@@ -43,8 +45,9 @@ export function Home() {
         >
           <Image
             style={styles.logo}
-            source={require("../../../assets/logo-recifeajuda+.png")}
+            source={require("../../../assets/logo-recifeajuda.png")}
           />
+
           <TouchableOpacity onPress={PressIcon}>
           <Image
             style={styles.sobrenos}

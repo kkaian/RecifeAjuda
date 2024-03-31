@@ -5,7 +5,7 @@ import pt_BR from './pt_BR.json'
 
 i18n.use(initReactI18next).init({
     CompatibilityJSON: 'v3',
-    lng: 'en_US',
+    lng: 'pt_BR',
     fallbackLng: 'pt_BR',
     resources: {
       en_US: en_US,

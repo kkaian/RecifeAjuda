@@ -4,7 +4,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import Home from '../home';
 import TelaLogin from '../login';
 import { useTranslation } from 'react-i18next';
-import LangButton from '../../LangButton';
+
 
 export function CriarConta() {
   const [t] = useTranslation()
@@ -62,7 +62,6 @@ export function CriarConta() {
       end={{ x: 0.5, y: 1.0 }}
       style={styles.container}
     >
-      <LangButton/>
       <View style={styles.content}>
 
         <Image

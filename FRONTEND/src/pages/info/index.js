@@ -15,7 +15,7 @@ export function Info() {
         >
           <Image
             style={styles.logo}
-            source={require("../../../assets/logo-recifeajuda+.png")}
+            source={require("../../../assets/logo-recifeajuda.png")}
           />
         
         </LinearGradient>

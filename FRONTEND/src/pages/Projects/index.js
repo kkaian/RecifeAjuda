@@ -3,6 +3,8 @@ import { StyleSheet, View, Image } from 'react-native';
 import { LinearGradient } from "expo-linear-gradient";
 
 export function Projects() {
+
+
   return (
     <View style={styles.container}>
     <View>
@@ -14,7 +16,7 @@ export function Projects() {
     >
       <Image
         style={styles.logo}
-        source={require("../../../assets/logo-recifeajuda+.png")}
+        source={require("../../../assets/logo-recifeajuda.png")}
       />
     
     </LinearGradient>
