@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Image, TextInput, TouchableOpacity, Text } from 'react-native';
+import { StyleSheet, View, Image, TextInput, TouchableOpacity, Text, Pressable } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import CriarConta from '../CreateAccount';
-import { Routes } from '../../routes'; 
+import { Routes } from '../../routes';
+import { useTranslation } from 'react-i18next';
+import LangButton from '../../LangButton';
 
 export function TelaLogin() {
+
+  const [t] = useTranslation()
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(); // Estado para controlar se o usuário está autenticado
@@ -16,7 +21,7 @@ export function TelaLogin() {
 
     // Simulando uma autenticação bem-sucedida
     setIsLoggedIn(true);
-    
+
   };
 
   const SignUp = () => {
@@ -27,12 +32,12 @@ export function TelaLogin() {
 
   if (isLoggedIn) {
     // Se o usuário estiver autenticado, renderize a tela Home
-    return <Routes/>;
+    return <Routes />;
   }
 
   if (cadastro) {
 
-    return <CriarConta/>;
+    return <CriarConta />;
   }
 
   return (
@@ -42,41 +47,43 @@ export function TelaLogin() {
       end={{ x: 0.5, y: 1.0 }}
       style={styles.container}
     >
+      <LangButton/>
       <View style={styles.content}>
         <Image
-          source={require("../../../assets/logo-recifeajuda+.png")}
+          source={require("../../../assets/logo-recifeajuda.png")}
           style={styles.logo}
         />
         <TextInput
           style={styles.input}
-          placeholder="Email"
+          placeholder={t('Email')}
           onChangeText={setEmail}
           value={email}
         />
         <TextInput
           style={styles.input}
-          placeholder="Senha"
+          placeholder={t('senha')}
           onChangeText={setPassword}
           value={password}
           secureTextEntry={true}
         />
 
-        <TouchableOpacity 
-        onPress={SignUp}
+        <TouchableOpacity
+          onPress={SignUp}
         >
-          <Text style={styles.button_siginText}>CADASTRE-SE</Text>
+          <Text style={styles.button_siginText}>{t('CADASTRE-SE')}</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.button} onPress={handleLogin}>
+        <Pressable style={styles.button} onPress={handleLogin}>
           <LinearGradient
             colors={['#15a63a', '#7ed957']}
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 0 }}
             style={styles.gradient}
+
           >
-            <Text style={styles.buttonText}>Entrar</Text>
+            <Text style={styles.buttonText}>{t('Entrar')}</Text>
           </LinearGradient>
-        </TouchableOpacity>
+        </Pressable>
       </View>
     </LinearGradient>
   );

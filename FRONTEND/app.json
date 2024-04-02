@@ -6,7 +6,7 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/logo-recifeajuda+.png",
+      "image": "./assets/logo-recifeajuda.png",
       "resizeMode": "contain",
       "backgroundColor": "#2B90C7"
     },

@@ -1,0 +1,21 @@
+{
+  "translation": {
+    "senha": "password",
+    "CADASTRE-SE": "SIGNUP",
+    "Entrar": "Login",
+    "Informe seus dados a seguir:": "Insert your details below: ",
+    "Nome Completo": "Full Name",
+    "DATA DE NASCIMENTO": "DATE OF BIRTH",
+    "Telefone": "Phone",
+    "CPF": "CPF",
+    "Email": "Email",
+    "CEP": "CEP",
+    "Confirmar": "Register",
+    "Projeto": "Project",
+    "Perfil": "Profile",
+    "Ajuda": "Support",
+    "Qual é seu nome?": "Whats your name?",
+    "Crie sua senha": "Create your password",
+    "Exemplo@gmail.com": "Example@gmail.com"
+  }
+}

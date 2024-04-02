@@ -3,8 +3,10 @@ import { View, Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity 
 import { LinearGradient } from 'expo-linear-gradient';
 import { useWindowDimensions } from 'react-native';
 import TelaLogin from '../login';
+import { useTranslation } from 'react-i18next';
 
 export function CriarConta() {
+  const  { t }   = useTranslation()
   const window = useWindowDimensions();
   const [orientation, setOrientation] = useState('portrait');
   const [nome, setNome] = useState('');
@@ -68,58 +70,56 @@ export function CriarConta() {
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         <View style={styles.content}>
           <Image
-            source={require("../../../assets/logo-recifeajuda+.png")}
+            source={require("../../../assets/logo-recifeajuda.png")}
             style={styles.logo}
           />
-          <Text style={styles.Text}>CADASTRE-SE</Text>
-          <Text style={[styles.Text1, { marginBottom: 25 }]}>INFORME SEUS DADOS A SEGUIR:</Text>
+          <Text style={styles.Text}>{t('CADASTRE-SE')}</Text>
+          <Text style={[styles.Text1, { marginBottom: 25 }]}>{t('Informe seus dados a seguir:')}</Text>
 
-          <Text style={styles.label}>NOME COMPLETO</Text>
+          <Text style={styles.label}>{t('Nome Completo')}</Text>
         <TextInput
-          placeholder="Qual é seu nome?"
+          placeholder={t("Qual é seu nome?")}
           style={styles.TextInput}
           onChangeText={text => setNome(text)}
         />
 
-        <Text style={styles.label}>DATA DE NASCIMENTO</Text>
+        <Text style={styles.label}>{t("DATA DE NASCIMENTO")}</Text>
         <TextInput
           placeholder="XX/XX/XXXX"
           style={styles.TextInput}
           onChangeText={text => setDatanascimento(text)}
         />
-        <Text style={styles.label}>TELEFONE</Text>
+        <Text style={styles.label}>{t("Telefone")}</Text>
         <TextInput
           placeholder="(XX) XXXXX-XXXX"
           style={styles.TextInput}
           onChangeText={text => setTelefone(text)}
         />
-         <Text style={styles.label}>CPF</Text>
+         <Text style={styles.label}>{t("CPF")}</Text>
         <TextInput
           placeholder="___.___.___-__"
           style={styles.TextInput}
           onChangeText={text => setCpf(text)}
         />
-         <Text style={styles.label}>EMAIL</Text>
+         <Text style={styles.label}>{t("EMAIL")}</Text>
         <TextInput
-          placeholder="Exemplo@gmail.com"
+          placeholder={t("Exemplo@gmail.com")}
           style={styles.TextInput}
           onChangeText={text => setEmail(text)}
         />
-        <Text style={styles.label}>SENHA</Text>
+        <Text style={styles.label}>{t("senha")}</Text>
         <TextInput
-          placeholder="Crie sua senha"
+          placeholder={t("Crie sua senha")}
           style={styles.TextInput}
           secureTextEntry={true}
           onChangeText={text => setPassword(text)}
         />
-         <Text style={styles.label}>CEP</Text>
+         <Text style={styles.label}>{t("CEP")}</Text>
         <TextInput
           placeholder="XXXXX-XXX"
           style={styles.TextInput}
           onChangeText={text => setCep(text)}
         />
-
-          
 
           <TouchableOpacity style={orientation === 'landscape' ? styles.buttonLandscape : styles.button} 
             onPress={handleSignUp}>
@@ -129,7 +129,7 @@ export function CriarConta() {
               end={{ x: 1, y: 0 }}
               style={styles.gradient}
             >
-              <Text style={styles.buttonText}>Confirmar</Text>
+              <Text style={styles.buttonText}>{t("Confirmar")}</Text>
             </LinearGradient>
           </TouchableOpacity>
         </View>
