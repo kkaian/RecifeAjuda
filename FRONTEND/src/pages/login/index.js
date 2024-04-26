@@ -61,7 +61,7 @@ export function TelaLogin() {
         />
         <TextInput
           style={styles.input}
-          placeholder={t('senha')}
+          placeholder={t('Senha')}
           onChangeText={setPassword}
           value={password}
           secureTextEntry={true}
