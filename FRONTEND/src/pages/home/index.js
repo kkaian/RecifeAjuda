@@ -9,15 +9,15 @@ import { useTranslation } from 'react-i18next';
 export function Home() {
   const { t } = useTranslation()
   const projects = [
-    { id: 1, title: t('Projeto') + ' 1', image: require('../../../assets/cacarprea.png'), recicoin: '30', date: '21/05/2003', hour: '16:20 - 17:20' },
-    { id: 2, title: t('Projeto') + ' 2', image: require('../../../assets/cozinhacomunitaria.png'), recicoin: '30', date: '21/05/2003', hour: '16:20 - 17:20' },
-    { id: 3, title: t('Projeto') + ' 3', image: require('../../../assets/catarlixo.png'), recicoin: '30', date: '21/05/2003', hour: '16:20 - 17:20' },
-    { id: 4, title: t('Projeto') + ' 4', image: require('../../../assets/plantiocomunitario.png'), recicoin: '30', date: '21/05/2003', hour: '16:20 - 17:20' },
-    { id: 5, title: t('Projeto') + ' 5', image: require('../../../assets/cacarprea.png'), recicoin: '30', date: '21/05/2003', hour: '16:20 - 17:20' },
-    { id: 6, title: t('Projeto') + ' 6', image: require('../../../assets/cacarprea.png'), recicoin: '30', date: '21/05/2003', hour: '16:20 - 17:20' },
-    { id: 7, title: t('Projeto') + ' 7', image: require('../../../assets/cacarprea.png'), recicoin: '30', date: '21/05/2003', hour: '16:20 - 17:20' },
-    { id: 8, title: t('Projeto') + ' 8', image: require('../../../assets/cacarprea.png'), recicoin: '30', date: '21/05/2003', hour: '16:20 - 17:20' },
-  
+    { id: 1, title: t('Caça preventiva de preá'), image: require('../../../assets/cacarprea.png'), recicoin: '300', date: '21/05/2024', hour: '10:00 - 12:00' },
+    { id: 2, title: t('Recife cozinha')+ '+', image: require('../../../assets/cozinhacomunitaria.png'), recicoin: '50', date: '22/05/2024', hour: '10:00 - 12:00' },
+    { id: 3, title: t('Recife limpa') + '+', image: require('../../../assets/catarlixo.png'), recicoin: '70', date: '23/05/2024', hour: '14:00 - 17:00' },
+    { id: 4, title: t('Recife planta')+ '+', image: require('../../../assets/plantiocomunitario.png'), recicoin: '35', date: '23/05/2024', hour: '14:00 - 17:00' },
+    { id: 5, title: t('Recife justiça')+ '+', image: require('../../../assets/bandido.png'), recicoin: '100', date: '24/05/2024', hour:'16:00 - 19:00'},
+    { id: 6, title: t('Acariciar negão da silva'), image: require('../../../assets/negaoguth.png'), recicoin: '999', date: '24/05/2024', hour: '05:00 - 23:00' },
+    { id: 7, title: t('Recife idoso')+ '+', image: require('../../../assets/idoso.png'), recicoin: '55', date: '25/05/2024', hour: '16:00 - 19:00' },
+    { id: 8, title: t('Recife reforma')+ '+', image: require('../../../assets/morrorecife.png'), recicoin: '80', date: '27/05/2024', hour: '16:00 - 19:00'},
+    
   ];
 
   const [about, setAbout] = useState(false);
@@ -222,7 +222,7 @@ const styles = StyleSheet.create({
   },
  
   recicoinAjuste: {
-     marginLeft: '9%',
+     marginLeft: '7%',
       alignSelf: 'center',
   },
   recicoinBorda:{
