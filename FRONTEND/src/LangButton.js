@@ -34,8 +34,8 @@ const styles = StyleSheet.create({
   languages: {
     flexDirection: 'row-reverse',
     overflow: 'hidden',
-    marginTop: -5,
-    marginRight: 5,
+    top: 25,
+    right: 5,
     borderRadius: 10,
   },
 })
