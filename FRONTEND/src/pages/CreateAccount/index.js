@@ -83,7 +83,7 @@ export function CriarConta() {
           onChangeText={text => setNome(text)}
         />
 
-        <Text style={styles.label}>{t("DATA DE NASCIMENTO")}</Text>
+        <Text style={styles.label}>{t("Data de nascimento")}</Text>
         <TextInput
           placeholder="XX/XX/XXXX"
           style={styles.TextInput}
@@ -107,7 +107,7 @@ export function CriarConta() {
           style={styles.TextInput}
           onChangeText={text => setEmail(text)}
         />
-        <Text style={styles.label}>{t("senha")}</Text>
+        <Text style={styles.label}>{t("Senha")}</Text>
         <TextInput
           placeholder={t("Crie sua senha")}
           style={styles.TextInput}

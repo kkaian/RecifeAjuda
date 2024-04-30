@@ -1,11 +1,11 @@
 {
   "translation": {
-    "senha": "password",
+    "Senha": "Password",
     "CADASTRE-SE": "SIGNUP",
     "Entrar": "Login",
     "Informe seus dados a seguir:": "Insert your details below: ",
     "Nome Completo": "Full Name",
-    "DATA DE NASCIMENTO": "DATE OF BIRTH",
+    "Data de nascimento": "Date of birth",
     "Telefone": "Phone",
     "CPF": "CPF",
     "Email": "Email",
